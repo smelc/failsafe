@@ -9,3 +9,8 @@ docs/
 *.iml
 _site
 .java-version
+
+bazel-bin
+bazel-failsafe
+bazel-out
+bazel-testlogs

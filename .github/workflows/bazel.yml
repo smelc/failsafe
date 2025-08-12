@@ -1,0 +1,30 @@
+name: Bazel Build
+
+on:
+  push:
+  merge_group:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Bazel
+        uses: bazelbuild/setup-bazelisk@v3
+
+      - name: Build with Bazel
+        run: bazel build //...
+
+      # Tests do not pass on the regular CI, so let's not try them with Bazel
+      # - name: Test with Bazel
+      #   run: bazel test //...

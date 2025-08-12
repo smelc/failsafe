@@ -1,0 +1,25 @@
+module(
+    name = "failsafe",
+    version = "1.0.0",
+    bazel_compatibility = [">=8.3.0"],
+)
+
+bazel_dep(name = "rules_java", version = "8.12.0")
+
+java = use_extension("@rules_java//java:extensions.bzl", "java")
+java.toolchain(
+    version = "17",
+    source_version = "17",
+    target_version = "17",
+)
+use_repo(java, "java_toolchains")
+
+bazel_dep(name = "rules_jvm_external", version = "6.8")
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+# Run `REPIN=1 bazel run @maven//:pin` to repin
+maven.install(
+    artifacts = [
+    ],
+    lock_file = "//:maven_install.json",
+)
+use_repo(maven, "maven")
