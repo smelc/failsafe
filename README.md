@@ -1,3 +1,10 @@
+# Why this fork?
+
+This fork is for me [@smelc](https://github.com/smelc) to learn [Bazel](https://bazel.build/). Bazel
+is overkill for Failsafe's codebase, but it's a good training ground.
+
+The rest of the original Failsafe README follows below.
+
 # Failsafe
 
 [![Build Status](https://github.com/failsafe-lib/failsafe/workflows/build/badge.svg)](https://github.com/failsafe-lib/failsafe/actions)
