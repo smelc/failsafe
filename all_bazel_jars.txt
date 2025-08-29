@@ -1,0 +1,5 @@
+bazel-bin/core/libfailsafe-hjar.jar
+bazel-bin/core/libfailsafe-native-header.jar
+bazel-bin/core/libfailsafe.jar
+bazel-bin/libfailsafe-native-header.jar
+bazel-bin/libfailsafe.jar
