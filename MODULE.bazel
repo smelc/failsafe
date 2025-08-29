@@ -19,6 +19,7 @@ maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 # Run `REPIN=1 bazel run @maven//:pin` to repin
 maven.install(
     artifacts = [
+      "com.squareup.okhttp3:okhttp:4.9.3",
     ],
     lock_file = "//:maven_install.json",
 )

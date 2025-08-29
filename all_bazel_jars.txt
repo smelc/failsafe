@@ -3,3 +3,5 @@ bazel-bin/core/libfailsafe-native-header.jar
 bazel-bin/core/libfailsafe.jar
 bazel-bin/libfailsafe-native-header.jar
 bazel-bin/libfailsafe.jar
+bazel-bin/modules/okhttp/libokhttp-native-header.jar
+bazel-bin/modules/okhttp/libokhttp.jar
