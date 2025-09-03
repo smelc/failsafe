@@ -4,15 +4,20 @@ module(
     bazel_compatibility = [">=8.3.0"],
 )
 
-bazel_dep(name = "rules_java", version = "8.12.0")
+# Causes bazel-bin/external/rules_java+ to be created
+# >=8.15.2 is required to have support for local JVMs ("java.local" below)
+bazel_dep(name = "rules_java", version = "8.15.2")
 
-java = use_extension("@rules_java//java:extensions.bzl", "java")
-java.toolchain(
-    version = "17",
-    source_version = "17",
-    target_version = "17",
+java = use_extension("@rules_java//java:extensions.bzl", "java_repository")
+# As documented in https://bazel.build/docs/bazel-and-java#config-java-toolchains
+# Beware to use "Nightly" or > 8.3 in the doc's version dropdown at the top
+java.local(
+    name="zulu17",
+    java_home = "/home/churlin/Downloads/zulu17.60.17-ca-jdk17.0.16-linux_x64/",
 )
-use_repo(java, "java_toolchains")
+# Make the repo accessible from the current context
+use_repo(java, "zulu17")
+register_toolchains("@zulu17//:all")
 
 bazel_dep(name = "rules_jvm_external", version = "6.8")
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")

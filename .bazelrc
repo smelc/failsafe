@@ -16,4 +16,9 @@ build:java17 --java_language_version=17
 build:java17 --tool_java_runtime_version=remotejdk_17
 build:java17 --tool_java_language_version=17
 
+build:zulu17 --java_runtime_version=zulu17
+build:zulu17 --java_language_version=17
+build:java17 --tool_java_runtime_version=remotejdk_17
+build:java17 --tool_java_language_version=17
+
 try-import %workspace%/dev.bazelrc
